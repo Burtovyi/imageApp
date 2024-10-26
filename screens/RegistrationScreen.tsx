@@ -9,50 +9,60 @@ import {
   TouchableOpacity,
   SectionList,
 } from 'react-native';
+import { globalColors } from '../styles/global';
 
-export default function RegistrationScreen() {
+const RegistrationScreen = () => {
   return (
     <ImageBackground
       source={require('../assets/images/background.jpg')}
-      style={{ width: '100%', height: '100%' }}>
-      <View style={styles.container}>
-        <TouchableOpacity style={styles.addFoto}></TouchableOpacity>
+      style={styles.background}>
+      <View style={styles.formContainer}>
+        <TouchableOpacity style={styles.addPhoto}></TouchableOpacity>
         <Text style={styles.text}>Реєстрація</Text>
 
         <TextInput
           style={styles.input}
           placeholder='Логін'
-          placeholderTextColor='#BDBDBD'
+          placeholderTextColor={globalColors.darkGray}
         />
         <TextInput
           style={styles.input}
           placeholder='E-mail'
-          placeholderTextColor='#BDBDBD'
+          placeholderTextColor={globalColors.darkGray}
         />
         <TextInput
           style={styles.input}
           placeholder='Пароль'
-          placeholderTextColor='#BDBDBD'
+          placeholderTextColor={globalColors.darkGray}
         />
       </View>
     </ImageBackground>
   );
-}
+};
+
+export default RegistrationScreen;
 
 const styles = StyleSheet.create({
-  container: {
+  background: {
+    width: '100%',
+    height: '100%',
+  },
+  formContainer: {
     flex: 1,
-    marginTop: 263,
+    position: 'absolute',
     borderRadius: 25,
-    backgroundColor: '#fff',
+    backgroundColor: globalColors.white,
     alignItems: 'center',
     justifyContent: 'center',
+    height: 550,
+    width: '100%',
+    bottom: 0,
   },
-  addFoto: {
+  addPhoto: {
     width: 120,
     height: 120,
     borderRadius: 16,
-    backgroundColor: '#000',
+    backgroundColor: globalColors.light,
   },
   text: {
     fontFamily: 'Roboto-Medium',
@@ -60,8 +70,9 @@ const styles = StyleSheet.create({
   input: {
     width: 343,
     height: 50,
-    backgroundColor: '#F6F6F6',
-    borderRadius: 8,
+    backgroundColor: globalColors.light,
+    borderTopRightRadius: 8,
+    borderTopLeftRadius: 8,
     padding: 16,
   },
   text2: {

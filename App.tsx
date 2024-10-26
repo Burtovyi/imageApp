@@ -1,8 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
+import { ActivityIndicator } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { useFonts } from 'expo-font';
+
 import RegistrationScreen from './screens/RegistrationScreen';
 
 SplashScreen.preventAutoHideAsync();
