@@ -56,9 +56,9 @@ const RegistrationScreen = () => {
           />
         </View>
         <View style={styles.innerContainer}>
-          <View style={styles.button}>
+          <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>Зареєструватися</Text>
-          </View>
+          </TouchableOpacity>
           <Text style={styles.textLogIn}>Вже є аккаунт? Вхід</Text>
         </View>
       </View>
