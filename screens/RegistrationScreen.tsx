@@ -14,7 +14,7 @@ import React, { useState } from 'react';
 
 import { globalColors } from '../styles/global';
 
-import Input from '../components/Input';
+import Input from '../components/input';
 import showPassword from '../components/btnShowPassword';
 
 const RegistrationScreen = () => {

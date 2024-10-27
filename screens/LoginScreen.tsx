@@ -10,7 +10,7 @@ import React, { useState } from 'react';
 
 import { globalColors } from '../styles/global';
 import showPassword from '../components/btnShowPassword';
-import Input from '../components/Input';
+import Input from '../components/input';
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
