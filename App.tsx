@@ -4,8 +4,11 @@ import { useEffect } from 'react';
 import { useFonts } from 'expo-font';
 
 import RegistrationScreen from './screens/RegistrationScreen';
+import LoginScreen from './screens/LoginScreen';
 
 SplashScreen.preventAutoHideAsync();
+
+const login: boolean = true;
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -23,5 +26,9 @@ export default function App() {
     return <ActivityIndicator />;
   }
 
-  return <RegistrationScreen></RegistrationScreen>;
+  return login ? (
+    <LoginScreen></LoginScreen>
+  ) : (
+    <RegistrationScreen></RegistrationScreen>
+  );
 }
