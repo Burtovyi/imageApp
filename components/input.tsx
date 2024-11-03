@@ -17,6 +17,7 @@ const Input: FC<InputProps> = ({
   rightButton,
   value,
   onChangeText,
+  secureTextEntry = false,
 }) => {
   return (
     <View style={[styles.inputBlock, outerStyle]}>
@@ -25,7 +26,7 @@ const Input: FC<InputProps> = ({
         placeholder={placeholder}
         placeholderTextColor={globalColors.darkGray}
         onChangeText={onChangeText}
-        secureTextEntry={false}
+        secureTextEntry={secureTextEntry}
       />
       {rightButton}
     </View>

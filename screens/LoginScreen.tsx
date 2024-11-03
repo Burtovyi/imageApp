@@ -1,56 +1,75 @@
+import React, { useState } from 'react';
 import {
   View,
   Text,
   ImageBackground,
   TouchableOpacity,
   StyleSheet,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from 'react-native';
 
-import React, { useState } from 'react';
-
 import { globalColors } from '../styles/global';
-import showPassword from '../components/btnShowPassword';
+import ShowPasswordButton from '../components/btnShowPassword';
 import Input from '../components/input';
 
-const LoginScreen = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [isShowPassword, setIsShowPassword] = useState(false);
+const LoginScreen: React.FC = () => {
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
+
+  const visibilityPassword = () => {
+    setIsShowPassword(!isShowPassword);
+  };
+
+  const handleSubmit = () => {
+    console.log('Email:', email);
+    console.log('Password:', password);
+  };
 
   return (
-    <ImageBackground
-      source={require('../assets/images/background.jpg')}
-      style={styles.background}>
-      <View style={styles.formContainer}>
-        <Text style={styles.title}>Увійти</Text>
-        <View style={styles.innerContainer}>
-          <Input
-            placeholder='Адреса електронної пошти'
-            value={email}
-            onChangeText={setEmail}
-          />
-          <Input
-            placeholder='Пароль'
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry={isShowPassword}
-            rightButton={showPassword()}
-            outerStyle={styles.password}
-          />
-        </View>
-        <TouchableOpacity style={styles.btn}>
-          <Text style={styles.btnText}>Увійти</Text>
-        </TouchableOpacity>
-        <View style={styles.registerText}>
-          <TouchableOpacity>
-            <Text>Немає акаунту?</Text>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <ImageBackground
+        source={require('../assets/images/background.jpg')}
+        style={styles.background}>
+        <View style={styles.formContainer}>
+          <Text style={styles.title}>Увійти</Text>
+          <View style={styles.innerContainer}>
+            <Input
+              placeholder='Адреса електронної пошти'
+              value={email}
+              onChangeText={setEmail}
+            />
+            <Input
+              placeholder='Пароль'
+              value={password}
+              onChangeText={setPassword}
+              secureTextEntry={!isShowPassword}
+              rightButton={
+                <ShowPasswordButton
+                  togglePasswordVisibility={visibilityPassword}
+                  isShowPassword={isShowPassword}
+                />
+              }
+              outerStyle={styles.password}
+            />
+          </View>
+          <TouchableOpacity
+            style={styles.btn}
+            onPress={handleSubmit}>
+            <Text style={styles.btnText}>Увійти</Text>
           </TouchableOpacity>
-          <TouchableOpacity>
-            <Text style={styles.registerLink}>Зареєструватися</Text>
-          </TouchableOpacity>
+          <View style={styles.registerText}>
+            <TouchableOpacity>
+              <Text>Немає акаунту?</Text>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Text style={styles.registerLink}>Зареєструватися</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
-    </ImageBackground>
+      </ImageBackground>
+    </TouchableWithoutFeedback>
   );
 };
 
@@ -72,7 +91,6 @@ const styles = StyleSheet.create({
     width: '100%',
     bottom: 0,
   },
-
   title: {
     marginTop: 32,
     marginBottom: 32,
@@ -81,7 +99,6 @@ const styles = StyleSheet.create({
     lineHeight: 35,
     color: globalColors.black,
   },
-
   btn: {
     width: '100%',
     height: 51,
@@ -92,39 +109,24 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     marginTop: 43,
   },
-
   btnText: {
     fontWeight: '400',
     fontSize: 16,
     lineHeight: 18,
     color: globalColors.white,
   },
-
   innerContainer: {
     width: '100%',
     gap: 16,
   },
-
-  input: {
-    width: '100%',
-    height: 50,
-    backgroundColor: globalColors.light,
-    borderRadius: 8,
-    padding: 16,
-    borderWidth: 1,
-    borderColor: globalColors.gray,
-    marginBottom: 16,
-  },
   password: {
     flexDirection: 'row',
-    alignItems: 'center',
+    justifyContent: 'space-between',
   },
-
   registerText: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-
   registerLink: {
     fontWeight: '400',
     fontSize: 16,

@@ -8,7 +8,7 @@ import LoginScreen from './screens/LoginScreen';
 
 SplashScreen.preventAutoHideAsync();
 
-const login: boolean = true;
+const login: boolean = false;
 
 export default function App() {
   const [fontsLoaded] = useFonts({

@@ -1,13 +1,9 @@
 import {
   Text,
   View,
-  Button,
-  TextInput,
   ImageBackground,
   StyleSheet,
-  SafeAreaView,
   TouchableOpacity,
-  SectionList,
   Image,
 } from 'react-native';
 import React, { useState } from 'react';
@@ -15,22 +11,21 @@ import React, { useState } from 'react';
 import { globalColors } from '../styles/global';
 
 import Input from '../components/input';
-import showPassword from '../components/btnShowPassword';
+import ShowPasswordButton from '../components/btnShowPassword';
 
-const RegistrationScreen = () => {
+const RegistrationScreen: React.FC = () => {
+  const [login, setLogin] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isShowPassword, setIsShowPassword] = useState(false);
 
-  const handleEmailChange = (text: string) => {
-    setEmail(text);
+  const handleSubmit = () => {
+    console.log('Login:', login);
+    console.log('Email:', email);
+    console.log('Password:', password);
   };
 
-  const handlePasswordChange = (text: string) => {
-    setPassword(text);
-  };
-
-  const handleShowPassword = () => {
+  const visibilityPassword = () => {
     setIsShowPassword(!isShowPassword);
   };
 
@@ -47,19 +42,42 @@ const RegistrationScreen = () => {
 
         <Text style={styles.title}>Реєстрація</Text>
         <View style={[styles.innerContainer, styles.inputBlock]}>
-          <Input placeholder='Логін' />
-          <Input placeholder='Емейл' />
+          <Input
+            placeholder='Логін'
+            value={login}
+            onChangeText={setLogin}
+          />
+          <Input
+            placeholder='Емейл'
+            value={email}
+            onChangeText={setEmail}
+          />
           <Input
             placeholder='Пароль'
-            rightButton={showPassword()}
+            value={password}
+            onChangeText={setPassword}
+            secureTextEntry={!isShowPassword}
+            rightButton={
+              <ShowPasswordButton
+                togglePasswordVisibility={visibilityPassword}
+                isShowPassword={isShowPassword}
+              />
+            }
             outerStyle={styles.password}
           />
         </View>
         <View style={styles.innerContainer}>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={handleSubmit}>
             <Text style={styles.buttonText}>Зареєструватися</Text>
           </TouchableOpacity>
-          <Text style={styles.textLogIn}>Вже є аккаунт? Вхід</Text>
+          <View style={styles.line}>
+            <Text>Вже є аккаунт?</Text>
+            <TouchableOpacity>
+              <Text style={styles.textLogIn}>Увійти</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     </ImageBackground>
@@ -126,11 +144,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 19,
     textAlign: 'center',
-    marginTop: 16,
   },
   password: {
     flexDirection: 'row',
-    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   button: {
     backgroundColor: globalColors.primary,
@@ -144,5 +161,10 @@ const styles = StyleSheet.create({
     color: globalColors.white,
     fontSize: 16,
     lineHeight: 19,
+  },
+  line: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

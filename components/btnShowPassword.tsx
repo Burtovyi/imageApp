@@ -1,12 +1,21 @@
 import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { globalColors } from '../styles/global';
-import { StyleSheet } from 'react-native';
 
-const showPassword = () => {
+interface ShowPasswordButtonProps {
+  togglePasswordVisibility: () => void;
+  isShowPassword: boolean;
+}
+
+const ShowPasswordButton: React.FC<ShowPasswordButtonProps> = ({
+  togglePasswordVisibility,
+  isShowPassword,
+}) => {
   return (
-    <TouchableOpacity onPress={() => {}}>
-      <Text style={stylesBTN.showPassword}>Показати</Text>
+    <TouchableOpacity onPress={togglePasswordVisibility}>
+      <Text style={stylesBTN.showPassword}>
+        {isShowPassword ? 'Приховати' : 'Показати'}
+      </Text>
     </TouchableOpacity>
   );
 };
@@ -20,4 +29,4 @@ const stylesBTN = StyleSheet.create({
   },
 });
 
-export default showPassword;
+export default ShowPasswordButton;
