@@ -17,7 +17,7 @@ type InputProps = {
   idPost: string;
   imgUrl: ImageSourcePropType;
   title: string;
-  likes: number;
+  likes?: number;
   comments: number;
   country: string;
 };
@@ -38,23 +38,27 @@ const Posts: FC<InputProps> = ({
         source={imgUrl}
         style={styles.image}
       />
-      <Text style={styles.title}>{title}</Text>
-      <View style={styles.innerContainer}>
-        <View style={styles.reactionContainer}>
-          <TouchableOpacity style={styles.reactionBlock}>
-            <CommentsIcon></CommentsIcon>
-            <Text>{comments}</Text>
-          </TouchableOpacity>
+      <View style={styles.ContextContainer}>
+        <Text style={styles.title}>{title}</Text>
+        <View style={styles.innerContainer}>
+          <View style={styles.reactionContainer}>
+            <TouchableOpacity style={styles.reactionBlock}>
+              <CommentsIcon></CommentsIcon>
+              <Text>{comments}</Text>
+            </TouchableOpacity>
 
+            {likes !== undefined && (
+              <TouchableOpacity style={styles.reactionBlock}>
+                <LikeIcon />
+                <Text>{likes}</Text>
+              </TouchableOpacity>
+            )}
+          </View>
           <TouchableOpacity style={styles.reactionBlock}>
-            <LikeIcon></LikeIcon>
-            <Text>{likes}</Text>
+            <LocalIcon></LocalIcon>
+            <Text style={styles.countryText}>{country}</Text>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity style={styles.reactionBlock}>
-          <LocalIcon></LocalIcon>
-          <Text style={styles.countryText}>{country}</Text>
-        </TouchableOpacity>
       </View>
     </View>
   );
@@ -64,10 +68,11 @@ const styles = StyleSheet.create({
   postContainer: {
     gap: 16,
     width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   image: {
     width: '100%',
-    aspectRatio: 1.5,
     borderRadius: 8,
   },
   title: {
@@ -85,6 +90,10 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     fontSize: 16,
     textDecorationLine: 'underline',
+  },
+  ContextContainer: {
+    width: '100%',
+    gap: 8,
   },
 });
 

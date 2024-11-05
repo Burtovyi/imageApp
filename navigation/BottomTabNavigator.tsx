@@ -1,39 +1,49 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import Ionicons from '@expo/vector-icons/Ionicons';
-
 import LoginScreen from '../screens/LoginScreen';
 import RegistrationScreen from '../screens/RegistrationScreen';
+import Home from '../screens/Home';
+import CreatePostsScreen from '../screens/CreatePostsScreen';
 
 const Tab = createBottomTabNavigator();
 const BottomTabNavigator = () => {
   return (
     <Tab.Navigator
-      screenOptions={{ headerShown: false, tabBarShowLabel: false }}>
+      screenOptions={{
+        headerShown: false,
+      }}>
       <Tab.Screen
         name='Login'
         component={LoginScreen}
-        options={{
-          title: 'Login',
-          tabBarIcon: () => (
-            <Ionicons
-              name='log-in-outline'
-              size={24}
-            />
-          ),
-        }}
+        options={
+          {
+            // headerShown: false,
+          }
+        }
       />
       <Tab.Screen
         name='Registration'
         component={RegistrationScreen}
+        options={
+          {
+            // headerShown: false,
+          }
+        }
+      />
+      {/* <Tab.Screen
+        name='Home'
+        component={Home}
+        options={
+          {
+            // headerShown: true,
+          }
+        }
+      /> */}
+      <Tab.Screen
+        name='CreatePostsScreen'
+        component={CreatePostsScreen}
         options={{
-          title: 'Registration',
-          tabBarIcon: () => (
-            <Ionicons
-              name='person-add-outline'
-              size={24}
-            />
-          ),
+          headerShown: true,
         }}
       />
     </Tab.Navigator>
