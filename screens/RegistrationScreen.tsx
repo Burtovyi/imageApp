@@ -8,10 +8,10 @@ import {
 } from 'react-native';
 import React, { useState } from 'react';
 
-import { globalColors } from '../styles/global';
+import { globalColors } from '../styles/Global';
 
-import Input from '../components/input';
-import ShowPasswordButton from '../components/btnShowPassword';
+import Input from '../components/Input';
+import ShowPasswordButton from '../components/BtnShowPassword';
 
 const RegistrationScreen: React.FC = () => {
   const [login, setLogin] = useState('');

@@ -10,29 +10,31 @@ import { NavigationContainer } from '@react-navigation/native';
 import RegistrationScreen from './screens/RegistrationScreen';
 import LoginScreen from './screens/LoginScreen';
 import Home from './screens/Home';
-import BottomTabNavigator from './navigatinon/BottomTabNavigator';
+import BottomTabNavigator from './navigation/BottomTabNavigator';
+import ProfileScreen from './screens/ProfileScreen';
 
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
-  const [fontsLoaded] = useFonts({
-    'Roboto-Medium': require('./assets/fonts/Roboto-Medium.ttf'),
-    'Roboto-Regular': require('./assets/fonts/Roboto-Regular.ttf'),
-  });
+  // const [fontsLoaded] = useFonts({
+  //   'Roboto-Medium': require('./assets/fonts/Roboto-Medium.ttf'),
+  //   'Roboto-Regular': require('./assets/fonts/Roboto-Regular.ttf'),
+  // });
 
-  useEffect(() => {
-    if (fontsLoaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded]);
+  // useEffect(() => {
+  //   if (fontsLoaded) {
+  //     SplashScreen.hideAsync();
+  //   }
+  // }, [fontsLoaded]);
 
-  if (!fontsLoaded) {
-    return <ActivityIndicator />;
-  }
+  // if (!fontsLoaded) {
+  //   return <ActivityIndicator />;
+  // }
 
   return (
-    <NavigationContainer>
-      <BottomTabNavigator />
-    </NavigationContainer>
+    // <NavigationContainer>
+    //   <BottomTabNavigator />
+    // </NavigationContainer>
+    <ProfileScreen />
   );
 }

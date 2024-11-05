@@ -9,9 +9,9 @@ import {
   Keyboard,
 } from 'react-native';
 
-import { globalColors } from '../styles/global';
-import ShowPasswordButton from '../components/btnShowPassword';
-import Input from '../components/input';
+import { globalColors } from '../styles/Global';
+import ShowPasswordButton from '../components/BtnShowPassword';
+import Input from '../components/Input';
 
 const LoginScreen: React.FC = () => {
   const [email, setEmail] = useState<string>('');

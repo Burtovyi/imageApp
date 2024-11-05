@@ -1,5 +1,5 @@
 import { StyleSheet, TextInput, ViewProps, View } from 'react-native';
-import { globalColors } from '../styles/global';
+import { globalColors } from '../styles/Global';
 import React, { FC } from 'react';
 
 type InputProps = {
