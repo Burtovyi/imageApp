@@ -7,7 +7,6 @@ import {
 } from 'react-native';
 
 import { globalColors } from '../styles/Global';
-import Posts from '../components/Posts';
 import React from 'react';
 
 import CreatePhotoIcon from '../icons/CreatePhotoIcon';
