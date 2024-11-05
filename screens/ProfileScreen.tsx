@@ -10,6 +10,7 @@ import {
 import React, { useState } from 'react';
 
 import Posts from '../components/Posts';
+import ChangePhotoIcon from '../icons/ChangePhotoIcon';
 import { globalColors } from '../styles/Global';
 
 const ProfileScreen: React.FC = () => {
@@ -22,13 +23,13 @@ const ProfileScreen: React.FC = () => {
           source={require('../assets/images/profilePhoto.png')}
           style={styles.addPhoto}>
           <TouchableOpacity style={styles.addPhotoIcon}>
-            <Image source={require('../assets/images/addPhoto.png')} />
+            <ChangePhotoIcon />
           </TouchableOpacity>
         </ImageBackground>
 
         <Text style={styles.title}>Natali Romanova</Text>
 
-        <ScrollView>
+        <ScrollView style={styles.postsContainer}>
           <Posts
             idPost='1'
             imgUrl={require('../assets/images/postPhoto.png')}
@@ -74,10 +75,8 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   addPhotoIcon: {
-    width: 25,
-    height: 25,
-    marginRight: -14,
-    marginBottom: 14,
+    marginRight: -20,
+    marginBottom: 0,
   },
   title: {
     fontFamily: 'Roboto-Medium',
@@ -125,5 +124,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  postsContainer: {
+    gap: 32,
   },
 });

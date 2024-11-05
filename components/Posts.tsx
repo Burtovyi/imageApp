@@ -9,7 +9,7 @@ import {
 import { globalColors } from '../styles/Global';
 import React, { FC } from 'react';
 
-import CommentsIcon from '../icons/commentsIcon';
+import CommentsIcon from '../icons/CommentsIcon';
 import LikeIcon from '../icons/likeIcon';
 import LocalIcon from '../icons/LocalIcon';
 
@@ -41,21 +41,20 @@ const Posts: FC<InputProps> = ({
       <Text style={styles.title}>{title}</Text>
       <View style={styles.innerContainer}>
         <View style={styles.reactionContainer}>
-          <View style={styles.reactionBlock}>
+          <TouchableOpacity style={styles.reactionBlock}>
             <CommentsIcon></CommentsIcon>
             <Text>{comments}</Text>
-          </View>
-          <View style={styles.reactionBlock}>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.reactionBlock}>
             <LikeIcon></LikeIcon>
             <Text>{likes}</Text>
-          </View>
-        </View>
-        <View style={styles.reactionBlock}>
-          <LocalIcon></LocalIcon>
-          <TouchableOpacity>
-            <Text style={styles.countryText}>{country}</Text>
           </TouchableOpacity>
         </View>
+        <TouchableOpacity style={styles.reactionBlock}>
+          <LocalIcon></LocalIcon>
+          <Text style={styles.countryText}>{country}</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

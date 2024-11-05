@@ -9,6 +9,7 @@ import {
 import React, { useState } from 'react';
 
 import { globalColors } from '../styles/Global';
+import AddPhotoIcon from '../icons/AddPhotoIcon';
 
 import Input from '../components/Input';
 import ShowPasswordButton from '../components/BtnShowPassword';
@@ -36,7 +37,7 @@ const RegistrationScreen: React.FC = () => {
       <View style={styles.formContainer}>
         <View style={styles.addPhoto}>
           <TouchableOpacity style={styles.addPhotoIcon}>
-            <Image source={require('../assets/images/addPhoto.png')} />
+            <AddPhotoIcon />
           </TouchableOpacity>
         </View>
 
