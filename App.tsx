@@ -1,14 +1,18 @@
+import 'react-native-gesture-handler';
+
 import { ActivityIndicator } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { useFonts } from 'expo-font';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 
 import RegistrationScreen from './screens/RegistrationScreen';
 import LoginScreen from './screens/LoginScreen';
+import Home from './screens/Home';
+import BottomTabNavigator from './navigatinon/BottomTabNavigator';
 
 SplashScreen.preventAutoHideAsync();
-
-const login: boolean = false;
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -26,9 +30,9 @@ export default function App() {
     return <ActivityIndicator />;
   }
 
-  return login ? (
-    <LoginScreen></LoginScreen>
-  ) : (
-    <RegistrationScreen></RegistrationScreen>
+  return (
+    <NavigationContainer>
+      <BottomTabNavigator />
+    </NavigationContainer>
   );
 }
