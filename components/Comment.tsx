@@ -15,10 +15,22 @@ type InputProps = {
   comment: string;
   date: string;
   time: string;
+  author: boolean;
 };
-const Comment: FC<InputProps> = ({ idPost, imgUrl, comment, date, time }) => {
+const Comment: FC<InputProps> = ({
+  idPost,
+  imgUrl,
+  comment,
+  date,
+  time,
+  author,
+}) => {
   return (
-    <View style={styles.commentContainer}>
+    <View
+      style={[
+        styles.commentContainer,
+        author && { flexDirection: 'row-reverse' },
+      ]}>
       <Image
         source={imgUrl}
         style={styles.authorAvatar}
@@ -27,7 +39,11 @@ const Comment: FC<InputProps> = ({ idPost, imgUrl, comment, date, time }) => {
         style={styles.textBlock}
         id={idPost}>
         <Text style={styles.text}>{comment}</Text>
-        <View style={styles.dateContainer}>
+        <View
+          style={[
+            styles.dateContainer,
+            author && { flexDirection: 'row-reverse' },
+          ]}>
           <Text style={styles.date}>{date}</Text>
           <Text style={styles.date}>{time}</Text>
         </View>
@@ -51,6 +67,7 @@ const styles = StyleSheet.create({
     backgroundColor: globalColors.light,
     padding: 16,
     borderRadius: 6,
+    gap: 8,
   },
   text: {
     color: globalColors.black,
