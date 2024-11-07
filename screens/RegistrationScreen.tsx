@@ -14,7 +14,12 @@ import AddPhotoIcon from '../icons/AddPhotoIcon';
 import Input from '../components/Input';
 import ShowPasswordButton from '../components/BtnShowPassword';
 
-const RegistrationScreen: React.FC = () => {
+type Props = {
+  navigation: any;
+  route: any;
+};
+
+const RegistrationScreen: React.FC<Props> = ({ navigation, route }) => {
   const [login, setLogin] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -28,6 +33,10 @@ const RegistrationScreen: React.FC = () => {
 
   const visibilityPassword = () => {
     setIsShowPassword(!isShowPassword);
+  };
+
+  const onSignIn = () => {
+    navigation.navigate('Login');
   };
 
   return (
@@ -75,7 +84,7 @@ const RegistrationScreen: React.FC = () => {
           </TouchableOpacity>
           <View style={styles.line}>
             <Text>Вже є аккаунт?</Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={onSignIn}>
               <Text style={styles.textLogIn}>Увійти</Text>
             </TouchableOpacity>
           </View>

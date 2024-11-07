@@ -13,7 +13,12 @@ import { globalColors } from '../styles/Global';
 import ShowPasswordButton from '../components/BtnShowPassword';
 import Input from '../components/Input';
 
-const LoginScreen: React.FC = () => {
+type Props = {
+  navigation: any;
+  route: any;
+};
+
+const LoginScreen: React.FC<Props> = ({ navigation, route }) => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
@@ -23,8 +28,11 @@ const LoginScreen: React.FC = () => {
   };
 
   const handleSubmit = () => {
-    console.log('Email:', email);
-    console.log('Password:', password);
+    navigation.navigate('Main');
+  };
+
+  const onSignUp = () => {
+    navigation.navigate('Registration');
   };
 
   return (
@@ -63,7 +71,7 @@ const LoginScreen: React.FC = () => {
             <TouchableOpacity>
               <Text>Немає акаунту?</Text>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={onSignUp}>
               <Text style={styles.registerLink}>Зареєструватися</Text>
             </TouchableOpacity>
           </View>

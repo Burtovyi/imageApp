@@ -127,5 +127,6 @@ const styles = StyleSheet.create({
   },
   postsContainer: {
     gap: 32,
+    width: '100%',
   },
 });

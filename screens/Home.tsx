@@ -7,16 +7,24 @@ import {
   SafeAreaView,
 } from 'react-native';
 
-import { globalColors } from '../styles/Global';
 import Posts from '../components/Posts';
-import React from 'react';
-const Home = () => {
+import { globalColors } from '../styles/Global';
+import UserCard from '../components/UserCard';
+import { useEffect } from 'react';
+
+type Props = {
+  navigation: any;
+  route: any;
+};
+
+const Home: React.FC<Props> = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
-      <View>
-        <Text>Home</Text>
-      </View>
-
+      <UserCard
+        imgUrl={require('../assets/images/profilePhoto.png')}
+        userName='Natali Romanova'
+        userEmail='email@example.com'
+      />
       <ScrollView style={styles.postsContainer}>
         <Posts
           idPost='1'
@@ -37,9 +45,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingLeft: 16,
     paddingRight: 16,
+    gap: 32,
+    paddingTop: 32,
   },
   postsContainer: {
-    gap: 16,
+    gap: 32,
     width: '100%',
   },
 });

@@ -15,27 +15,32 @@ import BtnDeleteIcon from '../icons/BtnDeleteIcon';
 
 const CreatePostsScreen = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.postsContainer}>
-        <View style={styles.addPhotoContainer}>
-          <CreatePhotoIcon />
-        </View>
+    <View style={styles.firstContainer}>
+      <View style={styles.container}>
+        <View style={styles.postsContainer}>
+          <View style={styles.addPhotoContainer}>
+            <CreatePhotoIcon />
+          </View>
 
-        <Text style={styles.title}>Завантажте фото</Text>
-      </View>
-      <View style={styles.postsInputContainer}>
-        <View style={styles.inputBlock}>
-          <TextInput placeholder='Назва' />
+          <Text style={styles.title}>Завантажте фото</Text>
         </View>
-        <View style={styles.inputBlock}>
-          <LocalIcon />
-          <TextInput placeholder='Місцевість...' />
+        <View style={styles.postsInputContainer}>
+          <View style={styles.inputBlock}>
+            <TextInput placeholder='Назва' />
+          </View>
+          <View style={styles.inputBlock}>
+            <LocalIcon />
+            <TextInput placeholder='Місцевість...' />
+          </View>
+        </View>
+        <View style={styles.btnContainer}>
+          <TouchableOpacity style={styles.btn}>
+            <Text style={styles.btnText}>Опубліковати</Text>
+          </TouchableOpacity>
         </View>
       </View>
-      <View style={styles.btnContainer}>
-        <TouchableOpacity style={styles.btn}>
-          <Text>Опубліковати</Text>
-        </TouchableOpacity>
+
+      <View style={styles.btnDelete}>
         <TouchableOpacity style={styles.btnDelete}>
           <BtnDeleteIcon />
         </TouchableOpacity>
@@ -45,13 +50,19 @@ const CreatePostsScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
+  firstContainer: {
     flex: 1,
     backgroundColor: globalColors.white,
     paddingLeft: 16,
     paddingRight: 16,
     paddingTop: 32,
+    justifyContent: 'space-between',
+    paddingBottom: 34,
+    width: '100%',
+  },
+  container: {
     gap: 32,
+    width: '100%',
   },
   addPhotoContainer: {
     width: '100%',
@@ -100,7 +111,15 @@ const styles = StyleSheet.create({
     width: '100%',
     gap: 120,
   },
-  btnDelete: {},
+  btnDelete: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+  },
+  btnText: {
+    color: globalColors.darkGray,
+    fontSize: 16,
+  },
 });
 
 export default CreatePostsScreen;

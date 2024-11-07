@@ -13,6 +13,7 @@ import Home from './screens/Home';
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import ProfileScreen from './screens/ProfileScreen';
 import CommentsScreen from './screens/CommentsScreen';
+import StackNavigator from './navigation/StackNavigator';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -29,12 +30,13 @@ export default function App() {
   }, [fontsLoaded]);
 
   if (!fontsLoaded) {
-    return <ActivityIndicator />;
+    return <ActivityIndicator size='large' />;
   }
 
   return (
     <NavigationContainer>
-      <BottomTabNavigator />
+      {/* <BottomTabNavigator /> */}
+      <StackNavigator />
     </NavigationContainer>
   );
 }
