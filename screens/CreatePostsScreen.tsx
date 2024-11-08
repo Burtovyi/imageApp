@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -5,22 +6,27 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
-
 import { globalColors } from '../styles/Global';
-import React from 'react';
 
 import CreatePhotoIcon from '../icons/CreatePhotoIcon';
 import LocalIcon from '../icons/LocalIcon';
 import BtnDeleteIcon from '../icons/BtnDeleteIcon';
+import CameraScreen from './CameraScreen';
 
 const CreatePostsScreen = () => {
-  return (
+  const [isCameraOpen, setIsCameraOpen] = useState(false);
+
+  return isCameraOpen ? (
+    <CameraScreen onClose={() => setIsCameraOpen(false)} />
+  ) : (
     <View style={styles.firstContainer}>
       <View style={styles.container}>
         <View style={styles.postsContainer}>
-          <View style={styles.addPhotoContainer}>
+          <TouchableOpacity
+            style={styles.addPhotoContainer}
+            onPress={() => setIsCameraOpen(true)}>
             <CreatePhotoIcon />
-          </View>
+          </TouchableOpacity>
 
           <Text style={styles.title}>Завантажте фото</Text>
         </View>

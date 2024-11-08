@@ -1,16 +1,12 @@
+import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-const Stack = createStackNavigator();
-
 import RegistrationScreen from '../screens/RegistrationScreen';
 import LoginScreen from '../screens/LoginScreen';
-// import Home from '../screens/Home';
 import BottomTabNavigator from './BottomTabNavigator';
 
-type Props = {
-  navigation: any;
-  route: any;
-};
-const StackNavigator: React.FC<Props> = ({ navigation, route }) => {
+const Stack = createStackNavigator();
+
+const StackNavigator: React.FC = () => {
   return (
     <Stack.Navigator
       initialRouteName='Login'
@@ -30,4 +26,5 @@ const StackNavigator: React.FC<Props> = ({ navigation, route }) => {
     </Stack.Navigator>
   );
 };
+
 export default StackNavigator;
