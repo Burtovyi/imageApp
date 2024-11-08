@@ -1,4 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useNavigation } from '@react-navigation/native';
 
 import LoginScreen from '../screens/LoginScreen';
 import RegistrationScreen from '../screens/RegistrationScreen';
@@ -13,7 +14,10 @@ import BtnBackIcon from '../icons/BtnBackIcon';
 import LogOutIcon from '../icons/LogOutIcon';
 
 const Tab = createBottomTabNavigator();
-const BottomTabNavigator = () => {
+
+const BottomTabNavigator: React.FC = () => {
+  const navigation = useNavigation();
+
   return (
     <Tab.Navigator
       initialRouteName='Home'
@@ -55,7 +59,7 @@ const BottomTabNavigator = () => {
           tabBarIcon: () => <AddPostIcon />,
           tabBarLabel: () => null,
           headerTitle: 'Створити публікацію',
-          headerLeft: () => <BtnBackIcon />,
+          headerLeft: () => <BtnBackIcon onPress={() => navigation.goBack()} />,
         }}
       />
 
