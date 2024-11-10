@@ -12,6 +12,7 @@ import {
 import { globalColors } from '../../styles/Global';
 import ShowPasswordButton from '../components/BtnShowPassword';
 import Input from '../components/Input';
+import { loginDB } from '../utils/auth';
 
 type Props = {
   navigation: any;
@@ -32,7 +33,7 @@ const LoginScreen: React.FC<Props> = ({ navigation, route }) => {
   };
 
   const onSignUp = () => {
-    navigation.navigate('Registration');
+    loginDB(email, password);
   };
 
   return (
@@ -72,7 +73,7 @@ const LoginScreen: React.FC<Props> = ({ navigation, route }) => {
               <Text>Немає акаунту?</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={onSignUp}>
-              <Text style={styles.registerLink}>Зареєструватися</Text>
+              <Text style={styles.registerLink}>Увійти</Text>
             </TouchableOpacity>
           </View>
         </View>
