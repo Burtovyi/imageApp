@@ -2,7 +2,7 @@ import React from 'react';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import GOOGLE_PLACES_API_KEY from '@env';
 import { StyleSheet } from 'react-native';
-import { globalColors } from '../styles/Global';
+import { globalColors } from '../../styles/Global';
 
 const GooglePlacesInput = () => {
   return (

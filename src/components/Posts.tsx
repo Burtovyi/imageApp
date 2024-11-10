@@ -6,12 +6,12 @@ import {
   View,
   ImageSourcePropType,
 } from 'react-native';
-import { globalColors } from '../styles/Global';
+import { globalColors } from '../../styles/Global';
 import React, { FC } from 'react';
 
-import CommentsIcon from '../icons/CommentsIcon';
-import LikeIcon from '../icons/likeIcon';
-import LocalIcon from '../icons/LocalIcon';
+import CommentsIcon from '../../icons/CommentsIcon';
+import LikeIcon from '../../icons/likeIcon';
+import LocalIcon from '../../icons/LocalIcon';
 
 type InputProps = {
   idPost: string;

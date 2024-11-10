@@ -8,7 +8,7 @@ import {
   ScrollView,
 } from 'react-native';
 
-import { globalColors } from '../styles/Global';
+import { globalColors } from '../../styles/Global';
 import React from 'react';
 
 import Comment from '../components/Comment';

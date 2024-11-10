@@ -8,11 +8,12 @@ import {
 } from 'react-native';
 import React, { useState } from 'react';
 
-import { globalColors } from '../styles/Global';
-import AddPhotoIcon from '../icons/AddPhotoIcon';
+import { globalColors } from '../../styles/Global';
+import AddPhotoIcon from '../../icons/AddPhotoIcon';
 
 import Input from '../components/Input';
 import ShowPasswordButton from '../components/BtnShowPassword';
+import { registerDB } from '../utils/auth';
 
 type Props = {
   navigation: any;
@@ -36,12 +37,12 @@ const RegistrationScreen: React.FC<Props> = ({ navigation, route }) => {
   };
 
   const onSignIn = () => {
-    navigation.navigate('Login');
+    registerDB({ email, password });
   };
 
   return (
     <ImageBackground
-      source={require('../assets/images/background.jpg')}
+      source={require('../../assets/images/background.jpg')}
       style={styles.background}>
       <View style={styles.formContainer}>
         <View style={styles.addPhoto}>

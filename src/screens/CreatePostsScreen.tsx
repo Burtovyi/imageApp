@@ -6,11 +6,11 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
-import { globalColors } from '../styles/Global';
+import { globalColors } from '../../styles/Global';
 
-import CreatePhotoIcon from '../icons/CreatePhotoIcon';
-import LocalIcon from '../icons/LocalIcon';
-import BtnDeleteIcon from '../icons/BtnDeleteIcon';
+import CreatePhotoIcon from '../../icons/CreatePhotoIcon';
+import LocalIcon from '../../icons/LocalIcon';
+import BtnDeleteIcon from '../../icons/BtnDeleteIcon';
 import CameraScreen from './CameraScreen';
 
 const CreatePostsScreen = () => {

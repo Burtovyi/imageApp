@@ -10,17 +10,17 @@ import {
 import React, { useState } from 'react';
 
 import Posts from '../components/Posts';
-import ChangePhotoIcon from '../icons/ChangePhotoIcon';
-import { globalColors } from '../styles/Global';
+import ChangePhotoIcon from '../../icons/ChangePhotoIcon';
+import { globalColors } from '../../styles/Global';
 
 const ProfileScreen: React.FC = () => {
   return (
     <ImageBackground
-      source={require('../assets/images/background.jpg')}
+      source={require('../../assets/images/background.jpg')}
       style={styles.background}>
       <View style={styles.formContainer}>
         <ImageBackground
-          source={require('../assets/images/profilePhoto.png')}
+          source={require('../../assets/images/profilePhoto.png')}
           style={styles.addPhoto}>
           <TouchableOpacity style={styles.addPhotoIcon}>
             <ChangePhotoIcon />
@@ -32,7 +32,7 @@ const ProfileScreen: React.FC = () => {
         <ScrollView style={styles.postsContainer}>
           <Posts
             idPost='1'
-            imgUrl={require('../assets/images/postPhoto.png')}
+            imgUrl={require('../../assets/images/postPhoto.png')}
             title='Ліс'
             likes={12}
             comments={3}

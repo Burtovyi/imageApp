@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 import React, { FC } from 'react';
-import { globalColors } from '../styles/Global';
+import { globalColors } from '../../styles/Global';
 
 type Props = {
   imgUrl: ImageSourcePropType;

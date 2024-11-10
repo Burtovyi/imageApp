@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { globalColors } from '../styles/Global';
+import { globalColors } from '../../styles/Global';
 
 interface ShowPasswordButtonProps {
   togglePasswordVisibility: () => void;

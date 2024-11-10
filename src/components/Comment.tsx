@@ -6,7 +6,7 @@ import {
   View,
   ImageSourcePropType,
 } from 'react-native';
-import { globalColors } from '../styles/Global';
+import { globalColors } from '../../styles/Global';
 import React, { FC } from 'react';
 
 type InputProps = {

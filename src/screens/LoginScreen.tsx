@@ -9,7 +9,7 @@ import {
   Keyboard,
 } from 'react-native';
 
-import { globalColors } from '../styles/Global';
+import { globalColors } from '../../styles/Global';
 import ShowPasswordButton from '../components/BtnShowPassword';
 import Input from '../components/Input';
 
@@ -38,7 +38,7 @@ const LoginScreen: React.FC<Props> = ({ navigation, route }) => {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <ImageBackground
-        source={require('../assets/images/background.jpg')}
+        source={require('../../assets/images/background.jpg')}
         style={styles.background}>
         <View style={styles.formContainer}>
           <Text style={styles.title}>Увійти</Text>

@@ -1,22 +1,24 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useNavigation } from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
 
 import LoginScreen from '../screens/LoginScreen';
 import RegistrationScreen from '../screens/RegistrationScreen';
 import Home from '../screens/Home';
 import CreatePostsScreen from '../screens/CreatePostsScreen';
 import CommentsScreen from '../screens/CommentsScreen';
-import HomeIcon from '../icons/HomeIcon';
+import HomeIcon from '../../icons/HomeIcon';
 import ProfileScreen from '../screens/ProfileScreen';
-import ProfileIcon from '../icons/ProfileIcon';
-import AddPostIcon from '../icons/AddPostIcon';
-import BtnBackIcon from '../icons/BtnBackIcon';
-import LogOutIcon from '../icons/LogOutIcon';
+import ProfileIcon from '../../icons/ProfileIcon';
+import AddPostIcon from '../../icons/AddPostIcon';
+import BtnBackIcon from '../../icons/BtnBackIcon';
+import LogOutIcon from '../../icons/LogOutIcon';
+import { logoutDB } from '../utils/auth';
 
 const Tab = createBottomTabNavigator();
 
 const BottomTabNavigator: React.FC = () => {
-  const navigation = useNavigation();
+  const dispatch = useDispatch();
 
   return (
     <Tab.Navigator
@@ -59,7 +61,7 @@ const BottomTabNavigator: React.FC = () => {
           tabBarIcon: () => <AddPostIcon />,
           tabBarLabel: () => null,
           headerTitle: 'Створити публікацію',
-          headerLeft: () => <BtnBackIcon onPress={() => navigation.goBack()} />,
+          headerLeft: () => <BtnBackIcon onPress={() => logoutDB(dispatch)} />,
         }}
       />
 
